@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Preguntas Frecuentes - Chapatax{% endblock %}
+
+{% block content %}
+    <h1>Preguntas Frecuentes</h1>
+    <ul>
+        {% for pregunta in preguntas %}
+        <li>
+            <strong>{{ pregunta.pregunta }}</strong>
+            <p>{{ pregunta.respuesta }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

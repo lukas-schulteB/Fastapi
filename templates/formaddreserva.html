@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Añadir Nueva Reserva - Chapatax{% endblock %}
+
+{% block content %}
+<h1>Añadir Nueva Reserva</h1>
+
+<form action="{{ request.url_for('addreserva') }}" method="post">
+    
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required><br>
+
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" name="telefono" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required><br>
+
+    <label for="hora">Hora:</label>
+    <input type="time" id="hora" name="hora" required><br>
+
+    <label for="personas">Número de personas:</label>
+    <input type="number" id="personas" name="personas" required><br>
+
+    <button type="submit">Enviar</button>
+</form>
+
+<a href="{{ request.url_for('reservas') }}">Volver a las reservas</a>
+{% endblock %}

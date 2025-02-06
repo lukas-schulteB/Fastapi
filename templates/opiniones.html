@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Opiniones de Clientes - Chapatax{% endblock %}
+
+{% block content %}
+<h1>Opiniones de Clientes</h1>
+
+<ul>
+    {% for review in reviews %}
+    <li>
+        <strong>{{ review.nombre }}</strong> ({{ review.puntuacion }}/5): 
+        <p>{{ review.comentario }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2>Deja tu Opinión</h2>
+<form action="/opiniones" method="post">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="puntuacion">Puntuación (1-5):</label>
+    <select id="puntuacion" name="puntuacion" required>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+
+    <label for="comentario">Comentario:</label>
+    <textarea id="comentario" name="comentario" rows="4" required></textarea>
+
+    <button type="submit">Enviar Opinión</button>
+</form>
+{% endblock %}
+

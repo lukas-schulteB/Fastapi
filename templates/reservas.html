@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Listado de Reservas - Chapatax{% endblock %}
+
+{% block content %}
+<h1>Listado de Reservas</h1>
+
+<ul>
+    {% for reserva in reservas %}
+    <li>{{ reserva.nombre }} - {{ reserva.fecha }} a las {{ reserva.hora }} ({{ reserva.personas }} personas)
+        <a href="{{ request.url_for('deletereserva', reserva_id=reserva.id) }}">Eliminar</a>
+        <a href="{{ request.url_for('editreserva', reserva_id=reserva.id) }}">Editar</a>
+    </li>
+    {% else %}
+    <li>No hay reservas disponibles</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ request.url_for('formaddreserva') }}">Añadir nueva reserva</a>
+{% endblock %}
